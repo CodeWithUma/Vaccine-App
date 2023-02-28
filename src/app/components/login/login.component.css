@@ -1,0 +1,153 @@
+.main {
+  height: 650px;
+  background-size: 100%;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ng-touched.ng-invalid[name="email"] {
+  border-bottom: 3px red solid;
+}
+.ng-touched.ng-valid[name="email"] {
+  border-bottom: 3px green solid;
+}
+.ng-touched.ng-invalid[name="password"] {
+  border-bottom: 3px red solid;
+}
+.ng-touched.ng-valid[name="password"] {
+  border-bottom: 3px green solid;
+}
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+}
+
+.main-1 {
+  text-align: center;
+}
+
+/* Styling the Form (Color, Padding, Shadow) */
+#forms {
+  background-color: #fff;
+  max-width: 500px;
+  margin: auto;
+  padding: 30px 20px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Styling form-control Class */
+.form-control {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+/* Styling form-control Label */
+.form-control label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Styling form-control input,select, textarea */
+.form-control input,
+.form-control select,
+.form-control textarea {
+  border: 1px solid #777;
+  border-radius: 2px;
+  font-family: inherit;
+  padding: 10px;
+  display: block;
+  width: 95%;
+}
+
+/* Styling form-control Radio button and Checkbox */
+.form-control input[type="radio"],
+.form-control input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+}
+
+/* Styling Button */
+button {
+  border-radius: 25px;
+  font-size: 21px;
+  display: block;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  transition-duration: 0.4s;
+}
+
+#button1 {
+  background-color: #05c46b;
+}
+
+#button1:hover {
+  background: rgb(89, 221, 89);
+  /* Green */
+  color: white;
+}
+
+#button2 {
+  background-color: red;
+}
+
+#button2:hover {
+  background: rgb(185, 120, 120);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 100px;
+  min-width: 350px;
+}
+
+.register {
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: darkblue;
+  color: white;
+}
+
+/* DUMMY */
+h1 {
+  text-align: center;
+}

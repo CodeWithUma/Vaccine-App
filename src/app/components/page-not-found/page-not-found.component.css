@@ -1,0 +1,51 @@
+.container a {
+  text-decoration: none;
+  color: white;
+}
+
+@keyframes glowing {
+  0% {
+    background-color: #2ba805;
+    box-shadow: 0 0 5px #2ba805;
+  }
+  50% {
+    background-color: #49e819;
+    box-shadow: 0 0 20px #49e819;
+  }
+  100% {
+    background-color: #2ba805;
+    box-shadow: 0 0 5px #2ba805;
+  }
+}
+.btn {
+  animation: glowing 1300ms infinite;
+}
+
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* Make the image responsive */
+.container .responsive {
+  width: 100%;
+  height: 600px;
+  border: 0;
+  display: block;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+  -webkit-border-radius: 60px;
+  border-radius: 60px;
+  border: none;
+  color: #eeeeee;
+  cursor: pointer;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 20px;
+  padding: 5px 15px;
+  margin-left: 45%;
+  text-align: center;
+}

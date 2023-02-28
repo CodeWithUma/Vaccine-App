@@ -1,0 +1,130 @@
+<div class="topnav">
+  <a [routerLink]="['']">Vaccination Management System</a>
+  <div class="topnav-right">
+    <a [routerLink]="['']">
+      Home
+    </a>
+    <a [routerLink]="['patients']">
+      Add Patient
+    </a>
+    <a [routerLink]="['/admin']">
+      Add Vaccination
+    </a>
+    <a [routerLink]="['/']">
+      Logout
+    </a>
+  </div>
+</div>
+<div class="main">
+  <h1 class="main-1">{{text}}</h1>
+  <hr>
+  <!-- Create Form -->
+  <form #loginForm="ngForm" id="forms" [formGroup]="patientForm" (ngSubmit)="onRegister()">
+    <!-- Details -->
+    <div class="form-control">
+      <!-- The REQUIRED attribute is to used to mandate a particular field -->
+      <label for="patientName">Name of the Patient</label>
+
+      <!-- Input Type Text -->
+      <input required type="text" id="name" placeholder="Enter Patients Full Name" formControlName="username" ngModel
+        name="username" />
+      <div [hidden]="username.valid || username.untouched">
+        <p class="alert alert-danger" [hidden]="!username.hasError('required')">username is required</p>
+      </div> 
+    </div>
+
+    <div class="form-control">
+      <!-- The REQUIRED attribute is to used to mandate a particular field -->
+      <label>D.O.B.</label>
+
+      <!-- Input Type Text -->
+      <input required type="date" id="dob" placeholder="Enter Date of Birth" formControlName="dob" ngModel name="dob" />
+      <div [hidden]="dob.valid || dob.untouched">
+        <p class="alert alert-danger" [hidden]="!dob.hasError('required')">dob is required</p>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label>Gender</label>
+
+      <!-- Dropdown options -->
+      <select name="gender" id="gender" formControlName="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="others">Others</option>
+      </select>
+    </div>
+
+    <div class="form-control">
+      <label>Place of Birth</label>
+      <input type="text" id="birth_place" placeholder="Enter Place of Birth" formControlName="birth" ngModel
+        name="birth_place">
+    </div>
+
+    <div class="form-control">
+      <label>Blood Group</label>
+      <select name=" blood_group" id="blood_group" formControlName="blood">
+        <option>O+</option>
+        <option>O-</option>
+        <option>A+</option>
+        <option>A-</option>
+        <option>B+</option>
+        <option>B-</option>
+        <option>AB+</option>
+        <option>AB-</option>
+      </select>
+    </div>
+
+    <div class="form-control">
+      <label>Height (in cm)</label>
+      <input type="number" id="height" placeholder="Enter Height" formControlName="height" [min]="0" ngModel
+        name="height" />
+      <div [hidden]="height.valid || height.untouched">
+        <p class="alert alert-danger" [hidden]="!height.hasError('maxvalue')">
+          height is should be greater than 0
+        </p>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label>Weight (in kg)</label>
+      <input type="number" id="weight" placeholder="Enter Weight" formControlName="weight" [min]="0" ngModel
+        name="weight" />
+      <div [hidden]="weight.valid || weight.untouched">
+        <p class="alert alert-danger" [hidden]="!weight.hasError('maxvalue')">
+          weight is should be greater than 0
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <button class="btn btn-success btn-block" type="submit" value="Validate" [disabled]="loginForm.invalid">
+          Save
+        </button>
+
+      </div>
+      <div class="col-6">
+        <a routerLink="/">
+          <button class="btn btn-danger btn-block" type="button" value="cancel">
+            Cancel
+          </button>
+        </a>
+      </div>
+
+      <!-- <button id="button1" type="submit" value="Validate" [disabled]="loginForm.invalid">
+        Save
+      </button>
+      <a routerLink="/">
+        <button id="button2" type="button" value="cancel">
+          Cancel
+        </button>
+      </a> -->
+      <!-- routerLink is used to simply navigate to the page without reloading it. -->
+      <!-- we use '/' here to simply route to a particular page. -->
+    </div>
+  </form>
+  <hr>
+  <footer>
+    <p>Copyright © 2021 Vaccine Management System. All Rights Reserved.</p>
+  </footer>

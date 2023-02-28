@@ -1,0 +1,112 @@
+<div class="topnav">
+  <a [routerLink]="['']">Vaccination Management System</a>
+  <div class="topnav-right">
+    <a [routerLink]="['']">
+      Home
+    </a>
+    <a [routerLink]="['/patients']">
+      Add Patient
+    </a>
+    <a [routerLink]="['/admin']">
+      Add Vaccination
+    </a>
+    <a [routerLink]="['/']">
+      Logout
+    </a>
+  </div>
+</div>
+<div class="main">
+  <h1 class="main-1">
+    <!-- Add-Vaccination to the Patient -->
+    {{text_3}}
+  </h1>
+  <hr>
+  <!-- Create Form -->
+  <form id="forms" [formGroup]="vaccineForm" (ngSubmit)="onRegister()">
+    <!-- Details -->
+    <div class="form-control">
+      <!-- The REQUIRED attribute is to used to mandate a particular field -->
+
+      <label for="patientName">Name of the Patient</label>
+      <select name="username" id="username" formControlName="username" (change)="selectPatient()">
+        <option hidden selected>Select one...</option>
+        <option *ngFor="let d of patient">{{d.username}}</option>
+      </select>
+      <div [hidden]="username.valid || username.untouched">
+        <p class="alert alert-danger" [hidden]="!username.hasError('required')">username is required</p>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <!-- The REQUIRED attribute is to used to mandate a particular field -->
+      <label>D.O.B.</label>
+      <select type="text" name="dob" id="dob" formControlName="dob" (change)="selectPatient()">
+        <option hidden selected>Select one...</option>
+        <option *ngFor="let data of patient">{{data.dob}}</option>
+      </select>
+      <div [hidden]="dob.valid || dob.untouched">
+        <p class="alert alert-danger" [hidden]="!dob.hasError('required')">dob is required</p>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label>Vaccination</label>
+
+      <!-- Dropdown options -->
+      <select name="add_vaccine" id="add_vaccine" formControlName="add_vaccine">
+        <option hidden selected>Select one...</option>
+        <option value="dose-1">Dose 1</option>
+        <option value="dose-2">Dose 2</option>
+        <option value="dose-3_Super-Dose">Dose 3 (Super Dose)</option>
+      </select>
+    </div>
+
+    <div class="form-control">
+      <!-- The REQUIRED attribute is to used to mandate a particular field -->
+      <label>Date Administered</label>
+
+      <!-- Input Type Text -->
+      <input required type="date" id="date_admin" placeholder="Enter Date of Birth" formControlName="date_admin" ngModel
+        name="date_admin" />
+      <div [hidden]="date_admin.valid || date_admin.untouched">
+        <p class="alert alert-danger" [hidden]="!date_admin.hasError('required')">date is required</p>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label>Brand Name</label>
+      <select required id="brand_name" [value]="brand_name" formControlName="brand_name">
+        <option>Covishield</option>
+        <option>Covaxin</option>
+        <option>Sputnik-V</option>
+      </select>
+    </div>
+
+    <div class="form-control">
+      <label>Given at (Enter Hospital Name)</label>
+
+      <!-- Input Type Text -->
+      <input required type="text" [value]="hospital_name" id="hospital_name" placeholder="Enter Hospital Name"
+        formControlName="hospital_name" ngModel />
+
+      <div [hidden]="hospital_name.valid || hospital_name.untouched">
+        <p class="alert alert-danger" [hidden]="!hospital_name.hasError('required')">hospital_name is required</p>
+      </div>
+    </div>
+
+    <!-- Multi-line Text Input Control -->
+    <button id="button1" type="submit" value="Validate" [disabled]="vaccineForm.invalid">Save</button>
+
+    <a href="/add-vaccine">
+      <button id="button2" type="button" value="cancel">
+        Cancel
+      </button>
+    </a>
+    <!-- href is used to reload the page -->
+  </form>
+
+  <hr>
+  <footer>
+    <p>Copyright © 2021 Vaccine Management System. All Rights Reserved.</p>
+  </footer>
+</div>

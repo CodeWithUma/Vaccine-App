@@ -1,0 +1,96 @@
+<div class="topnav">
+  <a [routerLink]="['']">Vaccination Management System</a>
+  <div class="topnav-right">
+    <a [routerLink]="['']"> Home </a>
+    <a [routerLink]="['/login']"> Login </a>
+  </div>
+</div>
+
+<div
+  class="main"
+  style="background-image: url(../../../assets/images/cowin.jpg)"
+>
+  <div class="signupFrm">
+    <form #SignUpForm="ngForm" class="form" (ngSubmit)="onSignUp(SignUpForm)">
+      <h1 class="title">Sign Up</h1>
+
+      <div class="inputContainer">
+        <input
+          type="email"
+          class="input"
+          name="email"
+          ngModel
+          required
+          email
+          #email="ngModel"
+        />
+        <label class="label">Email</label>
+        <div [hidden]="email.valid || email.untouched">
+          <div *ngIf="email.errors">
+            <p class="alert" [hidden]="!email.errors">
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="inputContainer">
+        <input
+          type="text"
+          class="input"
+          name="username"
+          ngModel
+          required
+          username
+          #username="ngModel"
+        />
+        <label class="label">Username</label>
+      </div>
+
+      <div class="inputContainer">
+        <input
+          type="password"
+          class="input"
+          name="password"
+          ngModel
+          required
+          password
+          minlength="6"
+          #password="ngModel"
+        />
+        <label class="label">Password</label>
+        <div [hidden]="password.valid || password.untouched">
+          <div *ngIf="password.errors">
+            <p class="alert" [hidden]="!password.errors">
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="inputContainer">
+        <input
+          type="password"
+          class="input"
+          name="password"
+          ngModel
+          required
+          password
+          minlength="6"
+          #confirm_password="ngModel"
+        />
+        <label for="" class="label">Confirm Password</label>
+      </div>
+
+      <button class="submitBtn1" type="signup" [disabled]="SignUpForm.invalid">
+        SignUp
+      </button>
+      <!-- <input type="submit" class="submitBtn1" value="Sign up" [disabled]="SignUpForm.invalid" /> -->
+      <input type="reset" class="resetBtn2" value="Reset" />
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>Copyright © 2021 Vaccine Management System. All Rights Reserved.</p>
+</footer>
+
+<router-outlet></router-outlet>
